@@ -18,16 +18,16 @@ const fetchBreedDescription = function(breedName, callback) {
     if (error) {
       callback(error);
     } else {
-    if (JSON.parse(body).length !== 0) {
-      const data = JSON.parse(body);
-      callback(null, (data[0].description));
-    } else {
-      console.log('ERROR: Breed not found!');
+      if (JSON.parse(body).length !== 0) {
+        const data = JSON.parse(body);
+        callback(null, (data[0].description));
+      } else {
+        console.log('ERROR: Breed not found!');
+      }
     }
-  }
   });
-}
+};
 
 module.exports = {
   fetchBreedDescription,
-}
+};
